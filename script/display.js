@@ -1,6 +1,6 @@
 class UI {
   constructor(element, list) {
-    this.element = element; //container
+    this.element = element; //container element
     this.list = list; //json object with data
   }
 
@@ -9,6 +9,17 @@ class UI {
       const anchor = document.createElement("a");
       anchor.href = i.html_url;
       anchor.textContent = i.full_name;
+      this.element.appendChild(anchor);
+      this.element.appendChild(document.createElement("br"));
+    });
+    return this.element;
+  }
+
+  displayIssues() {
+    this.list.items.forEach((i) => {
+      const anchor = document.createElement("a");
+      anchor.href = i.html_url;
+      anchor.textContent = i.title;
       this.element.appendChild(anchor);
       this.element.appendChild(document.createElement("br"));
     });
